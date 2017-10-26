@@ -1,0 +1,18 @@
+<button
+  class="standardButton"
+  [ladda]="isLoading"
+  [disabled]="!isEnabled"
+  data-style="slide-down"
+  data-spinner-size="25"
+  [ngClass]="[
+      icon ? 'hasIcon' : 'noIcon',
+      title ? 'hasTitle':'noTitle',
+      buttonType == 'normal' ? 'normal':'',
+      buttonType == 'secondary' ? 'secondary':'',
+      buttonType == 'light' ? 'light':''
+      ]"
+>
+
+  <img src="{{ icon }}" *ngIf="icon">
+  <span *ngIf="title">{{title}}</span>
+</button>

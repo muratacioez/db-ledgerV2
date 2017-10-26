@@ -1,0 +1,89 @@
+<div *ngIf="projectEntityDemand" class="container mainWrapper">
+  <form [formGroup]="form" autocomplete="off">
+  <div class="row projectViewWrapper">
+    <div class="col-md-3 leftSection">
+      <div class="progress-step-type-icon">
+        <img
+          src="{{ projectEntityDemand.typeIcon }}"
+          alt=""
+          *ngIf="projectEntityDemand">
+      </div>
+      <h2 *ngIf="projectEntityDemand">{{ projectEntityDemand.typeTitleText }}</h2>
+    </div>
+    <div class="col-md-7 centerSection">
+      <div class="row">
+        <app-user-avatar
+          [user]="projectEntityDemand.creator"
+          [small]="true"
+          *ngIf="projectEntityDemand">
+        </app-user-avatar>
+      </div>
+      <div class="row">
+        <div class="col-md-12 inputFields" *ngIf="currentProject">
+
+            <!--<section class="isDraftSection" *ngIf="isNewEntry == true">
+              <md-checkbox class="example-margin" formControlName="draft" name="isDraftCheckBox" [(ngModel)]="currentEntry.isDraft">Bedarf als Draft anlegen und zuweisen?</md-checkbox>
+            </section>-->
+
+            <md-select placeholder="Approver auswählen" formControlName="recipient" name ="recipientSelect" class="half-width">
+              <md-option value="Peter Mustermann">Peter Mustermann</md-option>
+              <md-option value="Hannelore Meyer">Hannelore Meyer</md-option>
+            </md-select>
+
+            <md-input-container class="full-width">
+              <input
+                mdInput
+                name="nameInput"
+                formControlName="name"
+                placeholder="Titel"
+                [(ngModel)]="currentProject.name"
+              >
+              <md-error align="end">Pflichtfeld</md-error>
+            </md-input-container>
+
+            <md-input-container class="full-width">
+              <textarea
+                mdTextareaAutosize = "true"
+                mdInput
+                name="descriptionInput"
+                formControlName="description"
+                placeholder="Beschreibung"
+                [(ngModel)]="projectEntityDemand.description"
+              ></textarea>
+              <md-error align="end">Pflichtfeld</md-error>
+            </md-input-container>
+
+        </div>
+      </div>
+      <div class="row bottomButtonSection" *ngIf="projectEntityDemand">
+        <app-standard-button-dbilv
+          (click)="onCloseClick($event)"
+          title="Abbrechen"
+          buttonType="normal"
+          class="pull-left btnCancel laddaBtn">
+        </app-standard-button-dbilv>
+        <app-standard-button-dbilv
+          #self *ngIf="isNewProject || projectEntityDemand.state === States.DEMAND_OPENED"
+          (click)="laddaIntercept(self, onSaveDemandClick)"
+          title="Speichern"
+          buttonType="light"
+          class="pull-left btnSave laddaBtn">
+        </app-standard-button-dbilv>
+        <app-standard-button-dbilv
+          #self *ngIf="!currentProject.isDraft"
+          (click)="isNewProject || projectEntityDemand.state === States.DEMAND_OPENED ? laddaIntercept(self, onSubmitDemandClick) : laddaIntercept(self, onEditDemnandClick)"
+          [title]="isNewProject || projectEntityDemand.state === States.DEMAND_OPENED ? 'Veröffentlichen' : 'Aktualisieren' "
+          buttonType="secondary"
+          class="pull-right btnSend laddaBtn">
+        </app-standard-button-dbilv>
+      </div>
+
+
+    </div>
+    <div class="col-md-2 rightSection">
+
+    </div>
+
+  </div>
+  </form>
+</div>

@@ -1,0 +1,23 @@
+import {IOrganization} from "./IOrganization";
+import {IUser} from "./IUser";
+
+export interface IEntryEntity{
+   type: string;
+   typeIcon: string;
+   typeTitleText: string;
+
+   id: string;
+   projectID: string;
+   creator: IUser;
+   creationTime: Date;
+   description: string;
+   attachments: string[];
+   endDate: Date;
+
+   messageBoardUrl: string;
+   availableActions: string;
+   state: string;
+   action: string;
+
+   toJSON(): Object;
+}
