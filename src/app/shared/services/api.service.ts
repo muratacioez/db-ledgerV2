@@ -7,29 +7,25 @@ import {Router} from "@angular/router";
 @Injectable()
 export class ApiService {
 
-  private apiEndpointMobileApp:string =  'http://matilda.dbe.aws.db.de:8080/ilv/app/resources';
-  public apiEndpointWeb:string =  '/ilv/resources';
+  private apiEndpointMobileApp:string =  'http://10.43.185.169:8510/safelog/resources/safelogalpha';
+  public apiEndpointWeb:string =  '/safelog/resources/safelogalpha';
+
+  //now
+  public static CREATE_ENTRY_REST_URL: string = "/createLogEntry";
+  public static UPDATE_ENTRY_STATE_REST_URL: string = "/updateLogEntryStatus";
+  public static GET_ENTRY_REST_URL: string = "/getLog";
+  public static GET_ALL_ENTRIES_REST_URL: string = "/getAllLogs";
+  public static ADD_ATTACHMENT_REST_URL: string = "/addAttachment";
+
+  //future
+  public static UPDATE_ENTRY_REST_URL: string = "/entry";
+  public static DELETE_ENTRY_REST_URL: string = "/entry/delete/";
+  public static GET_USER_REST_URL: string = "/user";
+  public static GET_POSSIBLE_RECIPIENTS_REST_URL: string = "";
 
   public static LOGIN_REST_URL: string = "";
   public static LOGOUT_REST_URL: string = "";
-  public static GET_PROJECTS_REST_URL: string = "/entry";
-  public static GET_MY_PROJECTS_REST_URL: string = "./assets/dummyData/projects.json";
-  public static GET_PROJECT_BY_ID_REST_URL: string = "/entry/";
-  public static GET_DEMAND_REST_URL: string = "/demand";
-  public static GET_CONTRACT_BY_DEMAND_ID_REST_URL: string = "/contract/demand/";
-  public static GET_CONTRACT_BY_CONTRACT_ID_REST_URL: string = "/contract/";
-  public static UPDATE_CONTRACT_STATE_REST_URL: string = "/contract/state/";
-  public static GET_USER_REST_URL: string = "/user";
-  public static GET_POSSIBLE_RECIPIENTS_REST_URL: string = "";
-  public static CREATE_DEMAND_REST_URL: string = "/demand";
-  public static UPDATE_DEMAND_REST_URL: string = "/demand";
-  public static DELETE_DEMAND_REST_URL: string = "/demand/delete/";
-  public static UPDATE_DEMAND_STATE_REST_URL: string = "/demand/state/";
-  public static CREATE_OFFER_REST_URL: string = "/offer";
-  public static UPDATE_OFFER_REST_URL: string = "/offer";
-  public static UPDATE_OFFER_STATE_REST_URL: string = "/offer/state/";
-  public static DELETE_OFFER_REST_URL: string = "/offer/delete/";
-  public static GET_STATS_BY_ID_REST_URL: string = "/stats/";
+
 
 
   public apiUrl:string;
@@ -78,11 +74,11 @@ export class ApiService {
   }
 
   // public getDownloadUrl (demandId: string, fileId: string){
-  //   return this.apiUrl + ApiService.GET_DEMAND_REST_URL + "/" + demandId + '/attachment/' + fileId;
+  //   return this.apiUrl + ApiService.GET_ENTRY_REST_URL + "/" + demandId + '/attachment/' + fileId;
   // }
   //
   // public getUploadUrl (demandId: string){
-  //   return this.apiUrl + ApiService.GET_DEMAND_REST_URL + "/" + demandId + '/attachment';
+  //   return this.apiUrl + ApiService.GET_ENTRY_REST_URL + "/" + demandId + '/attachment';
   // }
 
 

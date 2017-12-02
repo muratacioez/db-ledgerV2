@@ -17,6 +17,7 @@ export class UserAvatarComponent implements OnInit {
   }
 
   public ngOnInit () {
+
   }
 
 

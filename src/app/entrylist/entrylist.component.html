@@ -1,0 +1,49 @@
+
+<div class="container">
+  <div class="noEntriesLabel" *ngIf="entries && entries.length == 0">
+    <h3>Keine aktiven Vorgänge gefunden...</h3>
+  </div>
+
+  <div class="row entrylistHeader" [@headerState]="headerState">
+    <div class="col-md-7 header-left-section">
+      <h1>Einträge</h1>
+    </div>
+    <div class="col-md-5 header-right-section">
+        <div (click)="onLogoutClick()" class="logoutBtn pull-right">
+          <img src="assets/img/icons/icon_logout.png" alt="logout">
+        </div>
+        <app-user-avatar class="pull-right" [user]="auth.loggedUser" [small]="true"></app-user-avatar>
+    </div>
+  </div>
+  <div class="row entrylistList" [@listState]="listState">
+    <div class="row">
+      <div class="col-md-6">
+        <app-standard-button-dbilv
+          *ngIf="loggedInUser && loggedInUser.canCreateEntry === true"
+          buttonType="secondary"
+          title="+ Neuer Eintrag"
+          class="newProjectBtn pull-left"
+          (click)="onCreateNewEntryClick()">
+        </app-standard-button-dbilv>
+      </div>
+
+      <div class="col-md-6">
+        <app-search-field-dbilv name="searchProjectsInput" placeholder="Eintrag Suchen" *ngIf="entries && entries.length > 0"
+                                (confirmInput)="onSearchInputConfirm($event)"
+                                (inputUpdate)="onSearchUpdate($event)"></app-search-field-dbilv>
+
+        <!--<app-standard-button-dbilv
+          buttonType="normal"
+          title="PDF"
+          icon="../../assets/img/icons/icon_download.png"
+          class="exportPDFBtn pull-right">
+        </app-standard-button-dbilv>-->
+      </div>
+    </div>
+    <div class="row entrylistListWrapper" *ngIf="entries && entries.length > 0">
+      <div class="col-md-12">
+        <app-entrylist-list [search]="search" [data]="entries" (listElementClicked)="onListClick($event)"></app-entrylist-list>
+      </div>
+    </div>
+  </div>
+</div>

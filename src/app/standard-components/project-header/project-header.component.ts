@@ -94,7 +94,7 @@ export class ProjectHeaderComponent implements OnInit {
 
   public routeBackToMarketPlace (event: Event) {
     this.headerService.closeHeader();
-    this.closeProject.emit('marketplace');
+    this.closeProject.emit('entrylist');
   }
 
   public getProjectProgressPercentage () {

@@ -1,5 +1,5 @@
 import {IUser as IStandardUser} from "../../standard-components/interfaces/IUser";
-import {IUser as IMarketUser} from "../../market/interfaces/IUser";
+import {IUser as IMarketUser} from "../../shared/interfaces/IUser";
 
 import {isNullOrUndefined} from "util";
 export class User implements IStandardUser, IMarketUser {
@@ -8,8 +8,8 @@ export class User implements IStandardUser, IMarketUser {
   lastName: string;
   firstName: string;
   username: string;
-  avatarImageSrc: string;
-  canCreateEntry:boolean;
+  avatarImageSrc: string = "../../assets/img/userBlank.jpg";
+  canCreateEntry: boolean = true;
 
   public static fromJSON (json: any | Promise<any>) {
     if (isNullOrUndefined(json)) {
@@ -22,7 +22,7 @@ export class User implements IStandardUser, IMarketUser {
     user.firstName = json.firstName;
     user.username = json.username;
     user.avatarImageSrc = json.avatarImageSrc;
-    user.canCreateEntry = <boolean>json.canCreateDemand;
+    user.canCreateEntry = <boolean>json.canCreateEntry;
 
     return user;
   }

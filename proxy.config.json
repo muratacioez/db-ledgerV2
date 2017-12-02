@@ -1,0 +1,7 @@
+{
+  "/safelog/resources/safelogalpha/*":{
+    "target":"http://10.43.185.169:8510",
+    "secure": false,
+    "logLevel" : "debug"
+  }
+}

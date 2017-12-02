@@ -22,7 +22,6 @@ import {FileSizePipe} from "./shared/pipes/file-size-pipe";
 import {FileNamePipe} from "./shared/pipes/filename-pipe";
 import {JsonObjectPipe} from "./shared/pipes/json-object.pipe";
 import {TruncatePipe} from "./shared/pipes/truncate-pipe";
-import {PdfService} from "./services/pdf.service";
 import {SimpleTranslationPipe} from "./shared/pipes/simple-translation.pipe";
 
 @NgModule({
@@ -73,7 +72,7 @@ import {SimpleTranslationPipe} from "./shared/pipes/simple-translation.pipe";
     ModalDbIlvComponent
   ],
   providers:[
-    PdfService
+
   ]
 })
 export class StandardComponentsModule { }

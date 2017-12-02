@@ -4,8 +4,6 @@ export class StatusNotification {
   public icon: string;
   public additionalString: string;
 
-
-  //@TODO NA: Refactor to Interface
   constructor (type: string, text: string, iconURL:string) {
     this.type = type;
     this.text = text;

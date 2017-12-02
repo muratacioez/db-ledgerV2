@@ -1,0 +1,112 @@
+<div *ngIf="currentEntry" class="container mainWrapper">
+  <form [formGroup]="form" autocomplete="off">
+  <div class="row projectViewWrapper">
+    <div class="col-md-3 leftSection">
+      <div class="progress-step-type-icon">
+        <img
+          src="assets/img/icons/icon_Bedarf.png"
+          alt=""
+          *ngIf="currentEntry">
+      </div>
+      <h2 *ngIf="currentEntry">Eintrag</h2>
+    </div>
+    <div class="col-md-7 centerSection">
+      <div class="row">
+        <app-user-avatar
+          [user]="currentEntry.user"
+          [small]="true"
+          *ngIf="currentEntry">
+        </app-user-avatar>
+      </div>
+      <div class="row">
+        <div class="col-md-12 inputFields" *ngIf="currentEntry">
+
+            <md-input-container class="full-width">
+              <input
+                [readonly]="!isNewEntry"
+                mdInput
+                name="nameInput"
+                formControlName="name"
+                placeholder="Titel"
+                [(ngModel)]="currentEntry.logValue.logName"
+                [ngClass]="!isNewEntry? 'disabledInput' : ''"
+              >
+              <md-error align="end">Pflichtfeld</md-error>
+            </md-input-container>
+
+            <md-input-container class="full-width">
+              <textarea
+                [readonly]="!isNewEntry"
+                mdTextareaAutosize = "true"
+                mdInput
+                name="descriptionInput"
+                formControlName="description"
+                placeholder="Beschreibung"
+                [(ngModel)]="currentEntry.logValue.logData"
+                [ngClass]="!isNewEntry? 'disabledInput' : ''"
+              ></textarea>
+              <md-error align="end">Pflichtfeld</md-error>
+            </md-input-container>
+
+        </div>
+      </div>
+      <div class="row bottomButtonSection">
+        <app-standard-button-dbilv
+          (click)="onCloseClick($event)"
+          title="Zurück"
+          buttonType="light"
+          class="pull-left btnCancel laddaBtn">
+        </app-standard-button-dbilv>
+        <app-standard-button-dbilv
+          #self *ngIf="isNewEntry"
+          (click)="laddaIntercept(self, onSubmitDemandClick)"
+          title="Veröffentlichen"
+          buttonType="secondary"
+          class="pull-right btnSend laddaBtn">
+        </app-standard-button-dbilv>
+        <app-standard-button-dbilv
+          #self *ngIf="!isNewEntry && currentEntry.logUser != loggedInUser.username"
+          (click)="laddaIntercept(self, onUpdateStatusClick(true))"
+          title="Bestätigen"
+          buttonType="secondary"
+          class="pull-right btnSend laddaBtn">
+        </app-standard-button-dbilv>
+        <app-standard-button-dbilv
+          #self *ngIf="!isNewEntry && currentEntry.logUser != loggedInUser.username"
+          (click)="laddaIntercept(self, onUpdateStatusClick(false))"
+          title="Ablehnen"
+          buttonType="normal"
+          class="pull-right btnSend laddaBtn">
+        </app-standard-button-dbilv>
+      </div>
+
+      <div class="row">
+        <table class="table" *ngIf="!isNewEntry">
+          <thead>
+          <tr>
+            <th><p>Action&nbsp;&nbsp;</p></th>
+            <th><p>Status&nbsp;</p></th>
+            <th><p>User&nbsp;</p></th>
+            <th><p>Date&nbsp;</p></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor=" let element of (currentEntry.LogHistory)" [title]="element.LogAction">
+            <td style="text-overflow: ellipsis">{{ element.LogAction}}</td>
+            <td>{{ element.LogStatus}}</td>
+            <td>{{ element.LogUser}}</td>
+            <td>{{ element.LogActionDateTime | date: 'dd.MM.yyyy - HH:mm' }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+    <div class="col-md-2 rightSection">
+
+    </div>
+
+  </div>
+  </form>
+</div>

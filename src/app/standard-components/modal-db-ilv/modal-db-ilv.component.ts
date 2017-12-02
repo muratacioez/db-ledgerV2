@@ -38,7 +38,7 @@ export class ModalDbIlvComponent implements OnInit {
   public static MODAL_TYPE_ACCEPT_DEMAND: ModalDbIlvType = new ModalDbIlvType( 'assets/img/icons/smallIcons_64x64/icon_small_check.png',
                                                                               'Bedarf akzeptieren',
                                                                               'akzeptieren',
-                                                                              'Accept Demand description Text',
+                                                                              'Accept Demand details Text',
                                                                               null);
 
   public static MODAL_TYPE_REVOKE_DEMAND: ModalDbIlvType = new ModalDbIlvType( 'assets/img/icons/icon_Denied.png',
@@ -68,7 +68,7 @@ export class ModalDbIlvComponent implements OnInit {
   public static MODAL_TYPE_COMPLETE_DEMAND: ModalDbIlvType = new ModalDbIlvType( 'assets/img/icons/smallIcons_64x64/icon_small_check.png',
                                                                               'Bedarf abschließen',
                                                                               'Bedarf abschließen',
-                                                                              'Complete Demand description Text: Demand will be completed',
+                                                                              'Complete Demand details Text: Demand will be completed',
                                                                               null);
 
   public static MODAL_TYPE_APPROVE_DEMAND: ModalDbIlvType = new ModalDbIlvType( 'assets/img/icons/smallIcons_64x64/icon_small_check.png',
@@ -123,7 +123,7 @@ export class ModalDbIlvComponent implements OnInit {
   public static MODAL_TYPE_COMPLETE_OFFER: ModalDbIlvType = new ModalDbIlvType( 'assets/img/icons/smallIcons_64x64/icon_small_check.png',
                                                                               'Angebot abschließen',
                                                                               'Angebot abschließen',
-                                                                              'Complete Demand description Text: Demand will be completed',
+                                                                              'Complete Demand details Text: Demand will be completed',
                                                                               null);
 
   public static MODAL_TYPE_REVOKE_OFFER: ModalDbIlvType = new ModalDbIlvType( 'assets/img/icons/icon_Denied.png',

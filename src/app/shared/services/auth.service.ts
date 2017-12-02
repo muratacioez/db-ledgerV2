@@ -22,11 +22,20 @@ export class AuthService implements CanActivate {
 
   private _validUser: Map<string, string>;
 
-  private user: User = {
-    id: '7',
-    lastName: 'dosch',
-    firstName: 'simon',
-    username: 'simond',
+  private user1: User = {
+    id: '1',
+    lastName: 'Bennington',
+    firstName: 'Chester',
+    username: 'chester',
+    avatarImageSrc: '../../assets/img/userBlank.jpg',
+    canCreateEntry: true
+  }
+
+  private user2: User = {
+    id: '2',
+    lastName: 'Leto',
+    firstName: 'Jared',
+    username: 'jared',
     avatarImageSrc: '../../assets/img/userBlank.jpg',
     canCreateEntry: true
   }
@@ -50,8 +59,7 @@ export class AuthService implements CanActivate {
   public canActivate (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
 
-    //return this.checkLogin(url);
-    return true;
+    return this.checkLogin(url);
   }
 
   public checkLogin (url: string): boolean {
@@ -78,7 +86,7 @@ export class AuthService implements CanActivate {
   }
 
   public get loggedUser (): User {
-    return this.user;
+    return this._loggedUser;
   }
 
   public saveLoginCookie (user: User): void {
@@ -135,11 +143,13 @@ export class AuthService implements CanActivate {
 
     */
 
-    this._loggedUser = this.user;
-    this._isLoggedIn = true;
+    if(username == 'chester') this._loggedUser = this.user1;
+    if(username == 'jared') this._loggedUser = this.user2;
+
+    this._isLoggedIn = !!this._loggedUser;
 
     if (this._loggedUser !== null) {
-      this.saveLoginCookie(this.user);
+      this.saveLoginCookie(this._loggedUser);
       this.replaySubject.next(this._loggedUser);
     } else {
       this.replaySubject.error(new Error());
@@ -156,8 +166,7 @@ export class AuthService implements CanActivate {
   }
 
   get isLoggedIn (): boolean {
-    //return this._loggedUser ? true : false;
-    return true;
+    return !!this._loggedUser;
   }
 
   get redirectUrl (): string {

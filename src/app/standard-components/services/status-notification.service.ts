@@ -12,17 +12,17 @@ export class StatusNotificationService implements OnInit {
   public static SHOW_STATUS_ASK_FOR_APPROVAL: StatusNotification = new StatusNotification('SHOW_STATUS_ASK_FOR_APPROVAL', 'Genehmigung anfragen', 'assets/img/icons/smallIcons_64x64/icon_small_questionmark.png');
 
 
-  public static SHOW_STATUS_DEMAND_OPEN: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_OPEN', 'Bedarf angelegt', 'assets/img/icons/icon_Bedarf.png');
-  public static SHOW_STATUS_DEMAND_EDITED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_EDITED', 'Bedarf aktualisiert', 'assets/img/icons/smallIcons_64x64/icon_small_edit.png');
-  public static SHOW_STATUS_DEMAND_ACCEPTED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_ACCEPTED', 'Bedarf akzeptiert', 'assets/img/icons/smallIcons_64x64/icon_small_check.png');
-  public static SHOW_STATUS_DEMAND_SUBMITTED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_SUBMITTED', 'Bedarf übermittelt', 'assets/img/icons/smallIcons_64x64/icon_small_check.png');
-  public static SHOW_STATUS_DEMAND_APPROVED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_APPROVED', 'Bedarf genehmigt', 'assets/img/icons/smallIcons_64x64/icon_small_check.png');
-  public static SHOW_STATUS_DEMAND_REJECTED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_REJECTED', 'Bedarf abgelehnt', 'assets/img/icons/icon_Denied.png');
-  public static SHOW_STATUS_DEMAND_REVOKED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_REVOKED', 'Bedarf aufgehoben', 'assets/img/icons/icon_Denied.png');
-  public static SHOW_STATUS_DEMAND_RESIGNED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_RESIGNED', 'Bedarf aufgelöst', 'assets/img/icons/icon_Denied.png');
-  public static SHOW_STATUS_DEMAND_BLOCKED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_BLOCKED', 'Bedarf blockiert', 'assets/img/icons/icon_Denied.png');
-  public static SHOW_STATUS_DEMAND_CLOSED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_CLOSED', 'Bedarf geschlossen', 'assets/img/icons/icon_Denied.png');
-  public static SHOW_STATUS_DEMAND_COMPLETED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_COMPLETED', 'Bedarf abgeschlossen', 'assets/img/icons/smallIcons_64x64/icon_small_check.png');
+  public static SHOW_STATUS_ENTRY_OPEN: StatusNotification = new StatusNotification('SHOW_STATUS_ENTRY_OPEN', 'Eintrag angelegt', 'assets/img/icons/icon_Bedarf.png');
+  public static SHOW_STATUS_ENTRY_EDITED: StatusNotification = new StatusNotification('SHOW_STATUS_ENTRY_EDITED', 'Eintrag aktualisiert', 'assets/img/icons/smallIcons_64x64/icon_small_edit.png');
+  public static SHOW_STATUS_DEMAND_ACCEPTED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_ACCEPTED', 'Eintrag akzeptiert', 'assets/img/icons/smallIcons_64x64/icon_small_check.png');
+  public static SHOW_STATUS_DEMAND_SUBMITTED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_SUBMITTED', 'Eintrag übermittelt', 'assets/img/icons/smallIcons_64x64/icon_small_check.png');
+  public static SHOW_STATUS_DEMAND_APPROVED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_APPROVED', 'Eintrag genehmigt', 'assets/img/icons/smallIcons_64x64/icon_small_check.png');
+  public static SHOW_STATUS_DEMAND_REJECTED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_REJECTED', 'Eintrag abgelehnt', 'assets/img/icons/icon_Denied.png');
+  public static SHOW_STATUS_DEMAND_REVOKED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_REVOKED', 'Eintrag aufgehoben', 'assets/img/icons/icon_Denied.png');
+  public static SHOW_STATUS_DEMAND_RESIGNED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_RESIGNED', 'Eintrag aufgelöst', 'assets/img/icons/icon_Denied.png');
+  public static SHOW_STATUS_DEMAND_BLOCKED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_BLOCKED', 'Eintrag blockiert', 'assets/img/icons/icon_Denied.png');
+  public static SHOW_STATUS_DEMAND_CLOSED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_CLOSED', 'Eintrag geschlossen', 'assets/img/icons/icon_Denied.png');
+  public static SHOW_STATUS_DEMAND_COMPLETED: StatusNotification = new StatusNotification('SHOW_STATUS_DEMAND_COMPLETED', 'Eintrag abgeschlossen', 'assets/img/icons/smallIcons_64x64/icon_small_check.png');
 
   public static SHOW_STATUS_ERROR: StatusNotification = new StatusNotification('SHOW_STATUS_ERROR', 'Ein Fehler ist aufgetreten', 'assets/img/icons/icon_Denied.png');
 

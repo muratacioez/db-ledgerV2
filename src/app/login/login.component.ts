@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   public login () {
     this.authService.login(this.username, this.password).subscribe((user) => {
       if (this.authService.isLoggedIn) {
-        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/marketplace';
+        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/entrylist';
         this.router.navigate([redirect]);
       }
     }, err => {

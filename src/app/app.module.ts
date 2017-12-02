@@ -8,7 +8,8 @@ import {HttpModule} from "@angular/http";
 
 import {SplashscreenModule} from "./splashscreen/splashscreen.module";
 import {LoginModule} from "./login/login.module";
-import {MarketModule} from "./market/market.module";
+import {EntrylistModule} from "./entrylist/entrylist.module";
+import {EntryModule} from "./entry/entry.module";
 import {StandardComponentsModule} from "./standard-components/standard-components.module";
 import {ApiService} from "./shared/services/api.service";
 import {LoggingService} from "./shared/services/logging.service";
@@ -19,6 +20,7 @@ import {StatusNotificationService} from "./standard-components/services/status-n
 import {BackgroundService} from "./standard-components/services/background.service";
 import {CookieOptions, CookieService} from "angular2-cookie/core";
 import {ProjectHeaderService} from "./standard-components/services/project-header.service";
+import {EntryService} from "./shared/services/entry.service";
 
 
 
@@ -35,11 +37,13 @@ import {ProjectHeaderService} from "./standard-components/services/project-heade
     AppRoutingModule,
     SplashscreenModule,
     LoginModule,
-    MarketModule,
+    EntrylistModule,
+    EntryModule,
     StandardComponentsModule
   ],
   providers:[
     ApiService,
+    EntryService,
     CookieService,
     LoggingService,
     AuthService,

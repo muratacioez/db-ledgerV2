@@ -1,0 +1,26 @@
+<app-project-header
+  [headerState]="entryHeaderState"
+  [title]="headerTitle"
+  [projectID]="headerVorgangsnummer"
+  [projectPercentage]="0"
+  (closeProject)="onCloseProjectClicked()"
+  *ngIf="isNewEntry">
+</app-project-header>
+
+<div class="container entryContentContainer" [ngStyle]="{'margin-top': isNewEntry ? '150px' : '30px'}" [@entryContentState]="entryContentState">
+  <div class="row backToProjectHeader" *ngIf="!isNewEntry">
+    <div class="col-md-12">
+      <div class="backBtn" (click)="onCloseProjectClicked()">
+        <img src="assets/img/icons/icon_Back.png" alt="Zurück">
+      </div>
+      <h2>Eintrag lesen</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <app-entry-form-component [(currentEntry)]="currentEntry"
+                                [isNewEntry]="isNewEntry"
+                                (closeEntry)="onCloseProjectClicked()"></app-entry-form-component>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<table class="table">
+
+  <thead>
+  <tr>
+    <th (click)="sortableHeaderClicked('name', $event)">
+      <p>Titel&nbsp;&nbsp;</p>
+    </th>
+    <th (click)="sortableHeaderClicked('username', $event)">
+      <p>Creator&nbsp;</p>
+    </th>
+    <th (click)="sortableHeaderClicked('status', $event)">
+      <p>Status&nbsp;</p>
+    </th>
+    <th (click)="sortableHeaderClicked('created', $event)">
+      <p>Created&nbsp;</p>
+    </th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor=" let entry of ( data | searchFilter: search | sort: sortBy : sortOrderDESC)" (click)="routeToProjectDetail($event, entry)" [title]="entry.logValue.logName">
+    <td style="text-overflow: ellipsis">{{ entry.logValue.logName}}</td>
+    <td>{{ entry.logUser}}</td>
+    <td
+      [ngClass]="getStatusColor(entry)"
+    >{{ entry.logStatus}}</td>
+    <td>{{ entry.logDate | date: 'dd.MM.yyyy - HH:mm' }}</td>
+  </tr>
+  </tbody>
+
+</table>
+

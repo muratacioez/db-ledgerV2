@@ -41,7 +41,7 @@ export class SplashscreenComponent implements OnInit {
     }, 3000);
 
     setTimeout(() => {
-      this.router.navigate(['/marketplace']);
+      this.router.navigate(['/entrylist']);
     }, 3500);
   }
 
